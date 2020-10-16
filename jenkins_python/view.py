@@ -31,8 +31,7 @@ def index(request):
 
 @app.route('/testResult', methods = ['POST', 'GET'])
 def testResult(request):
-    # with pytest.raises(TypeError):
-    print('Running headless...')
+    print('\nRunning headless...')
     options = webdriver.ChromeOptions()
     log = Log()
     log.level = "SEVERE"
@@ -55,11 +54,10 @@ def testResult(request):
     options.add_argument("--headless")
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
-    driver = webdriver.Chrome(executable_path=os.path.abspath("static/driver/chromedriver.exe"), chrome_options=options)
+    driver = webdriver.Chrome(executable_path=os.path.abspath("static/driver/chromedriver.exe"), options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
-
     # return render(request, 'home.html')
 
 if __name__ == "__main__":
