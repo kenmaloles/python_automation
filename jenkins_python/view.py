@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.template.loader import render_to_string
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -54,7 +55,7 @@ def testResult(request):
     options.add_argument("--headless")
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
-    driver = webdriver.Chrome(executable_path="/static/driver/chromedriver.exe", options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
