@@ -12,6 +12,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.common.exceptions import NoAlertPresentException
 from datetime import datetime
 from selenium.webdriver import DesiredCapabilities
@@ -55,7 +56,8 @@ def testResult(request):
     options.add_argument("--headless")
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Remote("http://127.0.0.1:4444/wd/hub", DesiredCapabilities.CHROME, options=options)
+    # driver = webdriver.Chrome(options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
