@@ -51,13 +51,16 @@ def testResult(request):
     options.add_argument("disable-infobars") 
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
+    chrome_prefs = {}
+    options.experimental_options["prefs"] = chrome_prefs
+    chrome_prefs["profile.default_content_settings"] = {"images": 2}
     options.add_argument("--allow-insecure-localhost")
     options.add_argument("--log-level=3")
     options.add_argument("--headless")
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
-    driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME, options=options)
-    # driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME, options=options)
+    driver = webdriver.Chrome(options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
