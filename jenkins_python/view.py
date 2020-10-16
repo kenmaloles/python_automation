@@ -55,7 +55,7 @@ def testResult(request):
     options.add_argument("--headless")
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    driver = webdriver.Chrome(options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
