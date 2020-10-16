@@ -25,6 +25,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index(request):
+    print('Display home.html...')
+    testResult(request)
     return render(request, 'home.html')
 
 @app.route('/testResult', methods = ['POST', 'GET'])
