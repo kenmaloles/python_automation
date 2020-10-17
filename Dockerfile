@@ -6,4 +6,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # RUN python -u view.py
 CMD tail -f /dev/null
-RUN py.test -s jenkins_python/view.py
+# RUN py.test -s jenkins_python/view.py

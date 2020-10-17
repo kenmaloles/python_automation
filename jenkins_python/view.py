@@ -21,6 +21,7 @@ from selenium.webdriver.remote.remote_connection import LOGGER
 from flask import Flask, render_template
 from flask import request
 import pytest
+import sys
 
 app = Flask(__name__)
 
@@ -32,6 +33,7 @@ def index(request):
 
 @app.route('/testResult', methods = ['POST', 'GET'])
 def testResult(request):
+    sys.stdout.flush()
     print('\nRunning headless...')
     options = webdriver.ChromeOptions()
     log = Log()
