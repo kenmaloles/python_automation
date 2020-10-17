@@ -4,10 +4,6 @@ WORKDIR /python_automation
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set Docker entry
-COPY docker-entry.sh /python_automation
-ENTRYPOINT ["/python_automation/docker-entry.sh"]
-
 RUN apt-get update && apt-get install -yq \
     firefox-esr=52.6.0esr-1~deb9u1 \
     chromium=62.0.3202.89-1~deb9u1 \
