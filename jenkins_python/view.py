@@ -50,9 +50,6 @@ def testResult(request):
     options.add_argument("disable-infobars") 
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
-    chrome_prefs = {}
-    options.experimental_options["prefs"] = chrome_prefs
-    chrome_prefs["profile.default_content_settings"] = {"images": 2}
     options.add_argument("--allow-insecure-localhost")
     options.add_argument("--log-level=3")
     options.add_argument("--headless")
