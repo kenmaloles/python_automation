@@ -33,8 +33,8 @@ def index(request):
 
 @app.route('/testResult', methods = ['POST', 'GET'])
 def testResult(request):
-    sys.stdout.flush()
     print('\nRunning headless...')
+    sys.stdout.flush()
     options = webdriver.ChromeOptions()
     log = Log()
     log.level = "SEVERE"
