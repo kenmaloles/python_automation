@@ -3,6 +3,7 @@ COPY . /python_automation
 WORKDIR /python_automation
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN export PYTHONUNBUFFERED=true
 
 # RUN python -u view.py
 CMD tail -f /dev/null
