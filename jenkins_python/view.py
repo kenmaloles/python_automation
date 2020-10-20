@@ -25,6 +25,18 @@ import sys
 
 app = Flask(__name__)
 
+class Unbuffered(object):
+    def __init__(self, stream):
+        self.stream = stream
+    def write(self, data):
+        self.stream.write(data)
+        self.stream.flush()
+    def writelines(self, datas):
+        self.stream.writelines(datas)
+        self.stream.flush()
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
+
 @app.route('/')
 def index(request):
     print('Display home.html...')
@@ -33,8 +45,10 @@ def index(request):
 
 @app.route('/testResult', methods = ['POST', 'GET'])
 def testResult(request):
-    print('\nRunning headless...')
-    sys.stdout.flush()
+    print('\nRunning headless...1')
+    sys.stdout = Unbuffered(sys.stdout)
+    print('\nRunning headless...2')
+    # sys.stdout.flush()
     options = webdriver.ChromeOptions()
     log = Log()
     log.level = "SEVERE"
