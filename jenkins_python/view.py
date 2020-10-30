@@ -45,6 +45,7 @@ def index(request):
 
 @app.route('/testResult', methods = ['POST', 'GET'])
 def testResult(request):
+    chromeDriverPath = os.path.abspath("static/driver/chromedriver.exe")
     print('\nRunning headless...1')
     sys.stdout = Unbuffered(sys.stdout)
     print('\nRunning headless...2')
@@ -72,7 +73,7 @@ def testResult(request):
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
     # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME, options=options)
-    driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.Chrome(executable_path=chromeDriverPath, chrome_options=options)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
