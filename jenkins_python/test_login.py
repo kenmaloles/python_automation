@@ -14,7 +14,7 @@ driver = webdriver
 def test_setup():
     global driver
     chromeDriverPath = os.path.abspath("/static/driver/chromedriver.exe")
-    driver = webdriver.Chrome(chromeDriverPath)
+    driver = webdriver.Chrome('C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//static//driver//chromedriver.exe')
     driver.implicitly_wait(10)
     driver.maximize_window()
     yield
