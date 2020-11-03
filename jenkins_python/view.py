@@ -73,7 +73,7 @@ def testResult(request):
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument(log.level)
     # driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME, options=options)
-    driver = webdriver.Chrome(executable_path=chromeDriverPath, chrome_options=options)
+    driver = webdriver.Chrome(chromeDriverPath)
     print('Open google.com website....')
     driver.get("https://www.google.com/")
     print('Success!')
