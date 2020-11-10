@@ -10,15 +10,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 import unittest
 from allure_commons.types import AttachmentType                                                      
 
-options = webdriver.ChromeOptions()
-options.add_argument("--headless")
-driver = webdriver.Chrome('C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//static//driver//chromedriver.exe', options=options)
-@allure.severity(severity_level="NORMAL")
+driver = webdriver
 class TestLogin(unittest.TestCase):
     global driver
-    # options = webdriver.ChromeOptions()
-    # options.add_argument("--headless")
-    # driver = webdriver.Chrome('C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//static//driver//chromedriver.exe', options=options)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome('C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//static//driver//chromedriver.exe', options=options)
     driver.implicitly_wait(10)
     driver.maximize_window()
 
