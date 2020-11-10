@@ -40,7 +40,7 @@ class TestNavigate(unittest.TestCase):
         print('Open youtube website....')
         driver.get("https://www.youtube.com/")
         # typing_in_google_search("jenkins")
-        allure.attach(driver.get_screenshot_as_png(), name="youtube_website", attachment_type=AttachmentType.PNG)
+        allure.attach.file(driver.get_screenshot_as_png(), name="youtube_website", attachment_type=AttachmentType.PNG)
         print('youtube Success!')
         
     @allure.description("go to gmail")

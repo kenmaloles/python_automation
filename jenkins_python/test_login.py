@@ -39,7 +39,7 @@ class TestLogin(unittest.TestCase):
         print('Open google website....')
         driver.get("https://www.google.com/")
         self.typing_in_google_search("jenkins")
-        allure.attach(driver.get_screenshot_as_png(), name="google_website", attachment_type=AttachmentType.PNG)
+        allure.attach.file(driver.get_screenshot_as_png(), name="google_website", attachment_type=AttachmentType.PNG)
         print('Google Success!')
         
     @allure.description("go to yahoo website")
