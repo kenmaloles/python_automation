@@ -40,7 +40,7 @@ class TestNavigate(unittest.TestCase):
         print('Open youtube website....')
         driver.get("https://www.youtube.com/")
         # typing_in_google_search("jenkins")
-        allureResultPath = os.path.abspath("/allure-results")
+        allureResultPath = os.path.abspath("C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//allure-results")
         with open(allureResultPath, 'rb') as image:
             file = image.read()
             byte_array = bytearray(file)
