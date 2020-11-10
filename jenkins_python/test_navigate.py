@@ -35,7 +35,7 @@ class TestNavigate(unittest.TestCase):
 
     @allure.description("go to youtube website")
     # @allure.step("Open youtube website") 
-    @allure.severity(severity_level="CRITICAL")
+    @allure.severity(severity_level="NORMAL")
     def test_open_youtube(self):
         print('Open youtube website....')
         driver.get("https://www.youtube.com/")

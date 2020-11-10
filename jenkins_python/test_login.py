@@ -34,7 +34,7 @@ class TestLogin(unittest.TestCase):
         # self.driver.quit()
 
     @allure.description("go to google website")
-    @allure.severity(severity_level="CRITICAL")
+    @allure.severity(severity_level="NORMAL")
     def test_open_google(self):
         print('Open google website....')
         driver.get("https://www.google.com/")
