@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import unittest
-from allure_commons.types import AttachmentType                                                      
+from allure_commons.types import AttachmentType                                                 
 
 driver = webdriver
 class TestLogin(unittest.TestCase):
@@ -39,7 +39,12 @@ class TestLogin(unittest.TestCase):
         print('Open google website....')
         driver.get("https://www.google.com/")
         self.typing_in_google_search("jenkins")
-        allure.attach.file(driver.get_screenshot_as_png(), name="google_website", attachment_type=AttachmentType.PNG)
+        allureResultPath = os.path.abspath("/allure-results")
+        with open(allureResultPath, 'rb') as image:
+            file = image.read()
+            byte_array = bytearray(file)
+            allure.attach(byte_array, name="google_website", attachment_type=AttachmentType.PNG)
+            # allure.attach(driver.get_screenshot_as_png(), name="google_website", attachment_type=AttachmentType.PNG)
         print('Google Success!')
         
     @allure.description("go to yahoo website")
