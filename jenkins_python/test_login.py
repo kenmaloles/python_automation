@@ -38,7 +38,7 @@ class TestLogin(unittest.TestCase):
     def test_open_google(self):
         print('Open google website....')
         driver.get("https://www.google.com/")
-        self.typing_in_google_search("jenkins")
+        # self.typing_in_google_search("jenkins")
         # allureResultPath = os.path.abspath("C://Users//kenneth.m//Desktop//DRI Backup Files//Git Hub Repo//python_automation//allure-results")
         # with open(allureResultPath, 'rb') as image:
         #     file = image.read()
